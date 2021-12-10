@@ -118,7 +118,7 @@ module.exports = {
             if (check.error) {
                 return res.status(400).json({
                     status: 'failed',
-                    message: 'bad request',
+                    message: 'Bad request',
                     errors: check.error['details'].map(
                         ({ message }) => message
                     ),
