@@ -48,6 +48,7 @@ module.exports = {
                 data: data,
             });
         } catch (error) {
+            console.log(error);
             return res.status(500).json({
                 status: 'failed',
                 message: 'Internal Server Error',
@@ -58,7 +59,7 @@ module.exports = {
     getAllShopping: async (req, res) => {
         try {
             const getAll = await shopping.findAll({
-                attributes: { exclude: ['updatedAt'] },
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
             });
 
             return res.status(200).json({
@@ -80,7 +81,7 @@ module.exports = {
         try {
             const getData = await shopping.findOne({
                 where: { id },
-                attributes: { exclude: ['id', 'updatedAt'] },
+                attributes: { exclude: ['createdAt', 'updatedAt'] },
             });
 
             if (getData.dataValues.id !== req.users.id) {
