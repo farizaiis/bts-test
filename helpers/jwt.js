@@ -7,9 +7,4 @@ function generateToken(dataUser = {}) {
     return token;
 }
 
-function getUserdata(token) {
-    let decoded = jwt.verify(token, secretKey);
-    return decoded;
-}
-
 module.exports = { generateToken, getUserdata };
