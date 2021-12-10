@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Joi = require('joi');
-const { generateToken } = require('../helper/jwt');
-const { encrypt, comparePass } = require('../helper/bcrypt');
+const { generateToken } = require('../helpers/jwt');
+const { encrypt, comparePass } = require('../helpers/bcrypt');
 const { user } = require('../models');
 
 module.exports = {
@@ -71,9 +71,9 @@ module.exports = {
                 postcode: body.postcode,
             });
             const payload = {
-                role: userCheck.dataValues.role,
-                email: userCheck.dataValues.email,
-                id: userCheck.dataValues.id,
+                role: createUser.dataValues.role,
+                email: createUser.dataValues.email,
+                id: createUser.dataValues.id,
             };
 
             const token = generateToken(payload);
@@ -90,6 +90,7 @@ module.exports = {
                 data: data,
             });
         } catch (error) {
+            console.log(error);
             return res.status(500).json({
                 status: 'failed',
                 message: 'Internal Server Error',

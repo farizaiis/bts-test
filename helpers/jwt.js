@@ -7,4 +7,4 @@ function generateToken(dataUser = {}) {
     return token;
 }
 
-module.exports = { generateToken, getUserdata };
+module.exports = { generateToken };
