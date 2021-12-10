@@ -1,24 +1,34 @@
 {
-  "name": "bts-test",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@joi/date": "^2.1.0",
-    "bcrypt": "^5.0.1",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "joi": "^17.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.15",
-    "pg": "^8.7.1",
-    "sequelize": "^6.12.0-beta.2",
-    "sequelize-cli": "^6.3.0"
-  }
+    "name": "bts-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --detectOpenHandles",
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "db:migrate": "sequelize db:migrate",
+        "db:migrate:rollback": "sequelize db:migrate:undo:all",
+        "db:seed": "sequelize-cli db:seed:all",
+        "db:seed:one": "sequelize db:seed --seed",
+        "db:seed:undo": "sequelize-cli db:seed:undo",
+        "db:seed:make": "sequelize-cli seed:generate --name",
+        "heroku-release": "node_modules/.bin/sequelize db:migrate && node_modules/.bin/sequelize db:seed:all"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@joi/date": "^2.1.0",
+        "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "heroku": "^7.59.2",
+        "joi": "^17.5.0",
+        "jsonwebtoken": "^8.5.1",
+        "nodemon": "^2.0.15",
+        "pg": "^8.7.1",
+        "sequelize": "^6.12.0-beta.2",
+        "sequelize-cli": "^6.3.0"
+    }
 }
