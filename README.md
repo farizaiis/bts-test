@@ -10,4 +10,4 @@ Documentation Link :
 - Use "localhost:8000/" for host
 
 #### HOW TO RUN USING ENDPOIT HAS BEEN DEPLOYED
-- Cek documentation for detail each Endpoint
+- Use link : https://bts-shopping.herokuapp.com/
